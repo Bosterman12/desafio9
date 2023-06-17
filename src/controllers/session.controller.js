@@ -10,7 +10,10 @@ export const testLogin = (req, res, next) => {
                 first_name: req.user.first_name
             }
 
-            res.status(200).send({status: "sucess", payload: req.user})
+            //res.status(200).send({status: "sucess", payload: req.user})
+            res.redirect('../api/product')
+
+           
    }catch(error) {
         res.status(500).send({status: "error", error: error.message})
    }

@@ -310,8 +310,15 @@ initializePassport()
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use('/session', routerSession)
-app.use('/user', userRouter)
+app.use('/session', routerSession ,(req, res) =>{
+    res.render('sessions/login')
+    //res.redirect('api/product')
+})
+app.use('/user', userRouter /*, (req, res) =>{
+    res.render('sessions/register')
+}*/) 
+
+
 
 app.get('/session', (req, res) =>{
     if(req.session.counter){
